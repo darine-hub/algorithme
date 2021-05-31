@@ -1,0 +1,61 @@
+ALGORITHM PHRASE
+
+
+ FUNCTION nbrCaractere(texte:STRING) : INTEGER
+ VAR
+     i, nbrC :INTEGER;
+ BEGIN
+ nbrC:= 0;
+
+    FOR i FROM 0 TO texte.length -1 STEP step  DO
+         IF (texte[i] <> " ") THEN
+         nbrC= nbrC+1
+     END_IF
+ END_FOR
+    return nbrC;
+     
+ END
+
+FUNCTION nbrMots(texte:STRING) : INTEGER
+VAR
+    i, nbrM :INTEGER;
+BEGIN
+    nbrM:= 0;
+
+    FOR i FROM 0 TO texte.length -1 STEP step  DO
+         IF (texte.length > 0 AND texte[i] = " ") THEN
+         nbrM= nbrM+1
+     END_IF
+ END_FOR
+    return nbrM+1;
+END
+
+FUNCTION nbrVoyelles(texte:STRING) : INTEGER
+VAR
+    i, nbrV :INTEGER;
+BEGIN
+    nbrV:= 0;
+    FOR i FROM 0 TO texte.length -1 STEP step  DO
+        IF (texte[i]='a' OR texte[i]= 'e' OR texte[i]='i' OR texte[i]='o' OR texte[i]='u' OR texte[i]='y') THEN
+            nbrV:=nbrV+1;
+        END_IF
+    END_FOR
+    return nbrV;
+END
+
+
+
+
+VAR
+    phrase : STRING;
+
+BEGIN
+ Write ("entrer une phrase a votre choix; ");
+ Read (phrase);
+
+ Write("votre phrase contient " ,nbrCaractere(phrase),"caractere(s)");
+ Write("votre phrase contient " ,nbrMots(phrase),"mot(s)");
+ Write("votre phrase contient " ,nbrVoyelles(phrase),"voyelle(s)");
+
+
+END
